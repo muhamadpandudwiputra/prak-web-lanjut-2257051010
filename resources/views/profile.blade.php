@@ -16,6 +16,7 @@
             margin: 0;
             background: linear-gradient(135deg, #ff4e50, #1e90ff); /* Gradasi merah dan biru */
             position: relative;
+
         }
 
         .profile-container {
@@ -35,11 +36,16 @@
 
         .profile-pic {
             margin-bottom: 20px;
+
+            border-radius: 50%;
+            border: 4px solid #ff4e50; /* Bingkai merah di sekeliling foto profil */
+
             border-radius: 50%; /* Membuat foto berbentuk lingkaran */
             border: 4px solid #ff4e50; /* Bingkai merah di sekeliling foto profil */
             width: 150px;
             height: 150px;
             object-fit: cover; /* Memastikan gambar tetap proporsional */
+
         }
 
         .profile-info {
@@ -74,8 +80,10 @@
 
         .info-item span:first-child {
             font-weight: bold;
-        }
-
+   
+    </style>
+</head>
+<body>
         /* Tombol Back di pojok kiri atas */
         .back-button {
             position: absolute;
@@ -115,7 +123,20 @@
     <h1>Profile User</h1>
     <div class="profile-info">
         <!-- Tampilkan gambar profil dari public/assets/img -->
-        <img src="{{ asset($user->foto ?? 'assets/img/default-foto.jpg') }}" alt="Profile Image" class="profile-pic">
+        <img src="{{ asset('assets/css/img/bromo.jpg') }}" alt="Profile Picture" class="profile-pic" width="150" height="150">
+        <!-- Info user -->
+        <div class="info-item">Nama: {{ $nama }}</div>
+        <div class="info-item">NPM: {{ $npm }}</div>
+        <!-- Info user dengan kelas inline -->
+        <div class="info-item">
+            <span>Kelas:</span>
+            <span>{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
         <!-- Info user -->
         <div class="info-item">Nama: {{ $user->nama }}</div>
         <div class="info-item">NPM: {{ $user->npm }}</div>

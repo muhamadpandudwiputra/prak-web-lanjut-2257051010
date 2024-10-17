@@ -29,6 +29,9 @@
       background-color: #f28b82; /* Warna saat dihover (merah lembut) */
    }
 
+</style>
+
+
    /* Tambahkan gaya untuk link Tambah Pengguna Baru */
    a[href="{{ route('user.create') }}"] {
       display: inline-block;
@@ -50,6 +53,7 @@
 </style>
 
 <a href="{{ route('user.create') }}" >Tambah Pengguna Baru</a>
+
 <table>
    <thead>
       <tr>
@@ -57,13 +61,23 @@
          <th>Nama</th>
          <th>NPM</th>
          <th>Kelas</th>
+
+
          <th>Foto</th>
+
          <th>Aksi</th>
       </tr>
    </thead>
    <tbody>
       @foreach($users as $user)
         <tr>
+
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->nama }}</td>
+            <td>{{ $user->npm }}</td>
+            <td>{{ $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</td>
+            <td><!-- Aksi akan ditambahkan di sini --></td>
+
         <td>{{ $user->id }}</td>
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->npm }}</td>
@@ -78,6 +92,7 @@
             <td>
                <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-3">View</a>
             </td>
+
         </tr>
         @endforeach
    </tbody>
