@@ -39,7 +39,7 @@
                 </div>
 
                 <div>
-                    <div style="text-align:center; font-size: 30pt; margin-top:10px; font-weight:bold;">
+                    <div style="text-align:center; font-size: 30pt; margin-top:10px; font-weight:bold; color:white">
                         <h1>Muhamad Pandu Dwi Putra - 2257051010</h1>
                 </div>
 
