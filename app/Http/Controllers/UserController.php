@@ -8,7 +8,7 @@ use App\Models\UserModel;
 
 class UserController extends Controller
 {
-    public $UserModel;
+    public $userModel;
     public $kelasModel;
 
     public function create()
@@ -46,44 +46,46 @@ class UserController extends Controller
             'kelas_id' => $request->input('kelas_id'),
             ]);
             return redirect()->to('/user');
-           
     }
+
+
     public function uploadProfilePicture(Request $request)
     {
-        // Validasi file gambar
+        
         $request->validate([
-            'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Maksimal 2MB
+            'profile_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Ambil file dari form
+        
         $file = $request->file('profile_picture');
 
-        // Tentukan nama file yang unik untuk disimpan di public/assets/img
+     
         $fileName = time().'_'.$file->getClientOriginalName();
 
-        // Pindahkan file ke folder public/assets/img
+      
         $file->move(public_path('assets/img'), $fileName);
 
-        // Buat path file yang akan digunakan di view
+     
         $profile_picture_path = 'assets/img/' . $fileName;
 
-        // Redirect ke halaman profil dengan path gambar yang baru dan data user
+        
         return back()->with([
             'profile_picture' => $profile_picture_path,
             'nama' => $request->input('nama'),
             'npm' => $request->input('npm'),
-            'nama_kelas' => $request->input('kelas_id') // Sesuaikan dengan data yang sudah disimpan
+            'nama_kelas' => $request->input('kelas_id') 
         ]);
     }
 
     public function showProfile($id)
     {
-        // Ambil data user dari database
+      
         $user = User::findOrFail($id);
 
-        return view('profile', [
+       return view('profile', [
             'nama' => $user->nama,
             'npm' => $user->npm,
+
             'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan', // Ambil nama kelas dari relasi
             'profile_picture' => session('profile_picture', 'public/assets/css/img/bromo.jpg'), // Ambil profile picture dari session
         ]);
