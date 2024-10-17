@@ -31,4 +31,3 @@ public function profile()
     //     return view('profile', $data);
     // }
 }
-
