@@ -15,8 +15,6 @@
             height: 100vh;
             margin: 0;
             background: linear-gradient(135deg, #ff4e50, #1e90ff); /* Gradasi merah dan biru */
-            position: relative;
-
         }
 
         .profile-container {
@@ -36,16 +34,8 @@
 
         .profile-pic {
             margin-bottom: 20px;
-
             border-radius: 50%;
             border: 4px solid #ff4e50; /* Bingkai merah di sekeliling foto profil */
-
-            border-radius: 50%; /* Membuat foto berbentuk lingkaran */
-            border: 4px solid #ff4e50; /* Bingkai merah di sekeliling foto profil */
-            width: 150px;
-            height: 150px;
-            object-fit: cover; /* Memastikan gambar tetap proporsional */
-
         }
 
         .profile-info {
@@ -80,45 +70,11 @@
 
         .info-item span:first-child {
             font-weight: bold;
-   
-    </style>
-</head>
-<body>
-        /* Tombol Back di pojok kiri atas */
-        .back-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
-            
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-button:hover {
-            background-color: #ff4e50; /* Efek hover merah */
-        }
-
-        /* Styling untuk ikon panah */
-        .back-button::before {
-            content: '←'; /* Ikon panah */
-            margin-right: 10px; /* Jarak antara panah dan teks */
-            font-size: 16px; /* Ukuran ikon panah */
         }
 
     </style>
 </head>
 <body>
-
-<!-- Tombol Back di pojok kiri atas -->
-<a href="{{ route('user.index') }}" class="back-button">Back</a>
-
 <div class="profile-container">
     <h1>Profile User</h1>
     <div class="profile-info">
@@ -134,15 +90,5 @@
         </div>
     </div>
 </div>
-</body>
-</html>
-
-        <!-- Info user -->
-        <div class="info-item">Nama: {{ $user->nama }}</div>
-        <div class="info-item">NPM: {{ $user->npm }}</div>
-        <div class="info-item">Kelas: {{ $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan' }}</div>
-    </div>
-</div>
-
 </body>
 </html>

@@ -23,8 +23,3 @@ Route::get('/user/create', function () {return view('create_user');});
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/profile/upload', [ProfileController::class, 'uploadProfilePicture'])->name('upload.profile.picture');
-
-// Route untuk tugas 5
-
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
