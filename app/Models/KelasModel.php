@@ -9,8 +9,6 @@ class KelasModel extends Model
 {
     use HasFactory;
 
-}
-
     protected $table = 'kelas';
     public function getKelas(){
         return $this->all();

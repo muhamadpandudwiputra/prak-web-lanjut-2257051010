@@ -69,7 +69,7 @@
 <body>
     <div class="profile-container">
         <div class="profile-picture">
-            <img src="profil.jpg" alt="Profile Picture">
+        <img src="{{ asset($user->foto ?? 'assets/img/default-foto.jpg') }}" alt="Profile Image">
         </div>
         <div class="profile-info">
             <div>Nama: <span>{{ $nama }}</span></div>
